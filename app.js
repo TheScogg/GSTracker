@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var mongoose = require('mongoose');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -43,5 +43,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+mongoose.connect('mongodb://TheScogg:fogerty21@ds159507.mlab.com:59507/gstracker');
 
 module.exports = app;
